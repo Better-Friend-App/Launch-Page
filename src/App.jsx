@@ -87,7 +87,16 @@ function App() {
   const handleStatus = status => {
     setStatus(status);
   };
-
+  const btnStyle = {
+    background: "orange",
+    color: "white",
+    fontSize: "24px",
+    borderRadius: "8px",
+    border: "0",
+    padding: "10px 20px",
+    marginTop: "20px",
+    width: "100%"
+  }
   const CustomForm = ({ formStatus, message, onValidated, handleStatus }) => {
     const invalidEmailMsg = "Please enter a valid email!";
 
@@ -107,6 +116,7 @@ function App() {
       // IF NO ERRORS, SEND TO onValidated()
       else {
         onValidated(form);
+        
       }
     };
 
@@ -194,7 +204,7 @@ function App() {
             label="Name"
             onChange={handleFormChange}
             name="NAME"
-            placeholder="Your name"
+            placeholder="Firstname Lastname"
             fullWidth
             variant="outlined"
             margin="normal"
@@ -206,7 +216,7 @@ function App() {
           <TextField
             autoComplete="off"
             label="Email"
-            placeholder="Your email"
+            placeholder="You@domain.com"
             onChange={handleFormChange}
             name="EMAIL"
             error={errors["EMAIL"] ? true : false}
@@ -296,19 +306,19 @@ function App() {
             Let’s talk about social media.
           </Typography>
 
-          <Typography
+          {/*<Typography
             variant="body1"
             className={clsx(classes.body, classes.content)}
           >
             It all started out so innocent. Tom just wanted to be our friend.
             The Zuck promised us a better way to stay connected.
-          </Typography>
+          </Typography>*/}
 
           <Typography
             variant="body1"
             className={clsx(classes.body, classes.content)}
           >
-            But, Elon Musk is right: Facebook is lame. Ads, unsolicited
+            Elon Musk is right: Facebook is lame. Ads, unsolicited
             political opinions, poorly-drawn memes, and post after post of
             mindless garbage. It’s enough to make you go crazy{" "}
             <span role="img" aria-label="mind blown emoji">
@@ -321,7 +331,7 @@ function App() {
             variant="body1"
             className={clsx(classes.body, classes.content)}
           >
-            But, it doesn't <i> have </i> to stay like this.
+            <span className="strong">But, it doesn't <em> have </em> to stay like this.</span>
           </Typography>
 
           <Typography
@@ -370,7 +380,9 @@ function App() {
               style={{
                 textDecoration: "underline",
                 cursor: "pointer",
-                color: "orange"
+                color: "orange",
+                fontWeight:"bold",
+                textDecoration: "underline"
               }}
               onClick={() => setSubscribeOpen(true)}
             >
@@ -390,6 +402,7 @@ function App() {
                 ❤️
               </span>
             </Typography>
+            <button style={btnStyle} onClick={() => setSubscribeOpen(true)}>Sign Me Up</button>
           </div>
         </Grid>
       </Grid>

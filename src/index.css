@@ -22,3 +22,9 @@ canvas {
   position: fixed !important;
   z-index: 1500 !important;
 }
+.strong {
+  font-weight: bold;
+}
+.underline {
+  text-decoration: underline;
+}
