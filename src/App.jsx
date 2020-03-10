@@ -132,6 +132,19 @@ function App() {
     };
 
     useEffect(() => {
+      var promise = Promise.resolve();
+      if (window.dataLayer) {
+          promise = promise.then(function() {
+            window.dataLayer.push({ event: "optimize.activate" });
+          }) 
+        }
+        this.intervalId = setInterval(() => {
+          if (window.google_optimize !== undefined) {
+            const variant = window.google_optimize.get('XRQk0MXcRY6lxs0Ico-w0w');
+            this.setState({ variant });
+            clearInterval(this.intervalId);
+          }
+        }, 100);
       let tmp = formStatus;
 
       if (message) {
